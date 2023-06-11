@@ -1,0 +1,158 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model S {
+  id        Int      @id @default(autoincrement())
+  sno       String   @unique
+  sname     String
+  sex       Gender
+  age       Int
+  dept      Major
+  email     String
+  phone_num String
+  address   String
+  role      Role     @default(USER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  sc        SC[]     @relation("SC_snoToS")
+}
+
+model C {
+  id     Int     @id @default(autoincrement())
+  cno    String  @unique
+  cname  Course
+  credit Decimal
+  cpre   C[]     @relation("C2C")
+  cnext  C[]     @relation("C2C")
+  sc     SC[]    @relation("SC_cnoToC")
+}
+
+model SC {
+  id        Int      @id @default(autoincrement())
+  sno       String
+  cno       String
+  grade     Int?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  snoToS    S        @relation("SC_snoToS", fields: [sno], references: [sno], onDelete: Cascade, onUpdate: Cascade)
+  cnoToC    C        @relation("SC_cnoToC", fields: [cno], references: [cno], onDelete: Cascade, onUpdate: Cascade)
+}
+
+enum Gender {
+  Male
+  Female
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum Major {
+  Computer_Science
+  Engineering
+  Business_Administration
+  Psychology
+  Biology
+  Chemistry
+  Physics
+  Mathematics
+  English
+  History
+  Political_Science
+  Economics
+  Sociology
+  Anthropology
+  Art_and_Art_History
+  Music
+  Film_Studies
+  Communication_Studies
+  Education
+  Nursing
+  Clinical_Medicine
+  Environmental_Science
+  Philosophy
+  International_Relations
+  Linguistics
+  Graphic_Design
+  Architecture
+  Theater_and_Drama
+  Journalism
+  Public_Health
+  Social_Work
+  Criminal_Justice
+  Marketing
+  Finance
+  Human_Resources
+  Environmental_Studies
+  Public_Relations
+  Media_Studies
+  Cultural_Studies
+  Religious_Studies
+  Information_Technology
+  Urban_Planning
+  Public_Policy
+  Archaeology
+  Geology
+  Astronomy
+  Health_Sciences
+}
+
+enum Course {
+  Data_Structure
+  Database_Principles
+  Art_Appreciation
+  Creative_Writing
+  Intercultural_Communication
+  Social_Psychology
+  Entrepreneurship_and_Innovation
+  Global_Issues_Studies
+  Science_and_Ethics
+  Public_Speaking
+  Cultural_Anthropology
+  Interpersonal_Communication
+  Introduction_to_Sociology
+  Media_and_Society
+  Logic_and_Critical_Thinking
+  Political_Science
+  Introduction_to_Public_Health
+  Environmental_Science
+  Human_Rights_and_Social_Justice
+  Cultural_Diversity
+  Health_and_Fitness
+  Fundamentals_of_Finance
+  World_History
+  Digital_Media_and_Design
+  Urban_Planning_and_Development
+  International_Relations
+  Art_History
+  Data_Analysis_and_Statistics
+  Music_Appreciation
+  Tourism_Management
+  Criminal_Law_and_Social_Justice
+  Health_Psychology
+  Media_and_Social_Change
+  Principles_of_Marketing
+  Creative_Thinking
+  Earth_Science
+  Family_and_Marriage_Relationships
+  Social_Media_and_Internet_Culture
+  International_Business
+  Social_and_Cultural_Psychology
+  Science_Technology_and_Society
+  Principles_of_Economics
+  Human_Resource_Management
+  Music_Production
+  Government_and_Public_Policy
+  Network_Security
+  Film_and_Television_Studies
+  International_Development
+  Sports_Management
+  Introduction_to_Linguistics
+}

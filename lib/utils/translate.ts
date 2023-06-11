@@ -1,0 +1,584 @@
+import { Gender, Major, Course } from "@prisma/client";
+
+export function trnaslateGender(gender: Gender): string {
+  return gender === "Male" ? "男" : "女";
+}
+
+export function fallbackGender(gender: string): Gender {
+  return gender === "男" ? "Male" : "Female"; //Default Female
+}
+
+export function translateMajor(major: Major): string {
+  switch (major) {
+    case "Computer_Science":
+      return "计算机科学";
+    case "Engineering":
+      return "工程学";
+    case "Business_Administration":
+      return "工商管理学";
+    case "Psychology":
+      return "心理学";
+    case "Biology":
+      return "生物学";
+    case "Chemistry":
+      return "化学";
+    case "Physics":
+      return "物理学";
+    case "Mathematics":
+      return "数学";
+    case "English":
+      return "英语";
+    case "History":
+      return "历史学";
+    case "Political_Science":
+      return "政治学";
+    case "Economics":
+      return "经济学";
+    case "Sociology":
+      return "社会学";
+    case "Anthropology":
+      return "人类学";
+    case "Art_and_Art_History":
+      return "艺术与艺术史学";
+    case "Music":
+      return "音乐学";
+    case "Film_Studies":
+      return "电影研究学";
+    case "Communication_Studies":
+      return "传播学";
+    case "Education":
+      return "教育学";
+    case "Nursing":
+      return "护理学";
+    case "Clinical_Medicine":
+      return "临床医学";
+    case "Environmental_Science":
+      return "环境科学";
+    case "Philosophy":
+      return "哲学";
+    case "International_Relations":
+      return "国际关系学";
+    case "Linguistics":
+      return "语言学";
+    case "Graphic_Design":
+      return "平面设计学";
+    case "Architecture":
+      return "建筑学";
+    case "Theater_and_Drama":
+      return "戏剧与表演学";
+    case "Journalism":
+      return "新闻学";
+    case "Public_Health":
+      return "公共卫生学";
+    case "Social_Work":
+      return "社会工作学";
+    case "Criminal_Justice":
+      return "刑事司法学";
+    case "Marketing":
+      return "市场营销学";
+    case "Finance":
+      return "金融学";
+    case "Human_Resources":
+      return "人力资源学";
+    case "Environmental_Studies":
+      return "环境研究学";
+    case "Public_Relations":
+      return "公共关系学";
+    case "Media_Studies":
+      return "媒体研究学";
+    case "Cultural_Studies":
+      return "文化研究学";
+    case "Religious_Studies":
+      return "宗教研究学";
+    case "Information_Technology":
+      return "信息技术学";
+    case "Urban_Planning":
+      return "城市规划学";
+    case "Public_Policy":
+      return "公共政策学";
+    case "Archaeology":
+      return "考古学";
+    case "Geology":
+      return "地质学";
+    case "Astronomy":
+      return "天文学";
+    case "Health_Sciences":
+      return "健康科学";
+    default:
+      return major;
+  }
+}
+
+export function fallbackMajor(major: string): Major | string {
+  switch (major) {
+    case "计算机科学":
+      return "Computer_Science";
+    case "工程学":
+      return "Engineering";
+    case "工商管理学":
+      return "Business_Administration";
+    case "心理学":
+      return "Psychology";
+    case "生物学":
+      return "Biology";
+    case "化学":
+      return "Chemistry";
+    case "物理学":
+      return "Physics";
+    case "数学":
+      return "Mathematics";
+    case "英语":
+      return "English";
+    case "历史学":
+      return "History";
+    case "政治学":
+      return "Political_Science";
+    case "经济学":
+      return "Economics";
+    case "社会学":
+      return "Sociology";
+    case "人类学":
+      return "Anthropology";
+    case "艺术与艺术史学":
+      return "Art_and_Art_History";
+    case "音乐学":
+      return "Music";
+    case "电影研究学":
+      return "Film_Studies";
+    case "传播学":
+      return "Communication_Studies";
+    case "教育学":
+      return "Education";
+    case "护理学":
+      return "Nursing";
+    case "临床医学":
+      return "Clinical_Medicine";
+    case "环境科学":
+      return "Environmental_Science";
+    case "哲学":
+      return "Philosophy";
+    case "国际关系学":
+      return "International_Relations";
+    case "语言学":
+      return "Linguistics";
+    case "平面设计学":
+      return "Graphic_Design";
+    case "建筑学":
+      return "Architecture";
+    case "戏剧与表演学":
+      return "Theater_and_Drama";
+    case "新闻学":
+      return "Journalism";
+    case "公共卫生学":
+      return "Public_Health";
+    case "社会工作学":
+      return "Social_Work";
+    case "刑事司法学":
+      return "Criminal_Justice";
+    case "市场营销学":
+      return "Marketing";
+    case "金融学":
+      return "Finance";
+    case "人力资源学":
+      return "Human_Resources";
+    case "环境研究学":
+      return "Environmental_Studies";
+    case "公共关系学":
+      return "Public_Relations";
+    case "媒体研究学":
+      return "Media_Studies";
+    case "文化研究学":
+      return "Cultural_Studies";
+    case "宗教研究学":
+      return "Religious_Studies";
+    case "信息技术学":
+      return "Information_Technology";
+    case "城市规划学":
+      return "Urban_Planning";
+    case "公共政策学":
+      return "Public_Policy";
+    case "考古学":
+      return "Archaeology";
+    case "地质学":
+      return "Geology";
+    case "天文学":
+      return "Astronomy";
+    case "健康科学":
+      return "Health_Sciences";
+    default:
+      return major;
+  }
+}
+
+export function fallbackCourse(course: string): Course | string {
+  switch (course) {
+    case "艺术欣赏":
+      return "Art_Appreciation";
+    case "创意写作":
+      return "Creative_Writing";
+    case "跨文化交流":
+      return "Intercultural_Communication";
+    case "社会心理学":
+      return "Social_Psychology";
+    case "创业与创新":
+      return "Entrepreneurship_and_Innovation";
+    case "全球问题研究":
+      return "Global_Issues_Studies";
+    case "科学与伦理":
+      return "Science_and_Ethics";
+    case "公共演讲":
+      return "Public_Speaking";
+    case "文化人类学":
+      return "Cultural_Anthropology";
+    case "人际沟通":
+      return "Interpersonal_Communication";
+    case "社会学导论":
+      return "Introduction_to_Sociology";
+    case "媒体与社会":
+      return "Media_and_Society";
+    case "逻辑与批判性思维":
+      return "Logic_and_Critical_Thinking";
+    case "政治科学":
+      return "Political_Science";
+    case "公共卫生导论":
+      return "Introduction_to_Public_Health";
+    case "环境科学":
+      return "Environmental_Science";
+    case "人权与社会正义":
+      return "Human_Rights_and_Social_Justice";
+    case "文化多样性":
+      return "Cultural_Diversity";
+    case "健康与健身":
+      return "Health_and_Fitness";
+    case "金融基础":
+      return "Fundamentals_of_Finance";
+    case "世界历史":
+      return "World_History";
+    case "数字媒体与设计":
+      return "Digital_Media_and_Design";
+    case "城市规划与发展":
+      return "Urban_Planning_and_Development";
+    case "国际关系":
+      return "International_Relations";
+    case "艺术史":
+      return "Art_History";
+    case "数据分析与统计":
+      return "Data_Analysis_and_Statistics";
+    case "音乐欣赏":
+      return "Music_Appreciation";
+    case "旅游管理":
+      return "Tourism_Management";
+    case "刑事法与社会正义":
+      return "Criminal_Law_and_Social_Justice";
+    case "健康心理学":
+      return "Health_Psychology";
+    case "传媒与社交变革":
+      return "Media_and_Social_Change";
+    case "营销原理":
+      return "Principles_of_Marketing";
+    case "创意思维":
+      return "Creative_Thinking";
+    case "地球科学":
+      return "Earth_Science";
+    case "家庭与婚姻关系":
+      return "Family_and_Marriage_Relationships";
+    case "社会媒体与网络文化":
+      return "Social_Media_and_Internet_Culture";
+    case "国际商务":
+      return "International_Business";
+    case "社会与文化心理学":
+      return "Social_and_Cultural_Psychology";
+    case "科技与社会":
+      return "Science_Technology_and_Society";
+    case "基础经济学":
+      return "Principles_of_Economics";
+    case "人力资源管理":
+      return "Human_Resource_Management";
+    case "音乐制作":
+      return "Music_Production";
+    case "政府与公共政策":
+      return "Government_and_Public_Policy";
+    case "网络安全":
+      return "Network_Security";
+    case "电影与电视研究":
+      return "Film_and_Television_Studies";
+    case "国际发展":
+      return "International_Development";
+    case "体育管理":
+      return "Sports_Management";
+    case "语言学导论":
+      return "Introduction_to_Linguistics";
+    case "数据结构":
+      return "Data_Structure";
+    case "数据库原理":
+      return "Database_Principles";
+    default:
+      return "NULL";
+  }
+}
+
+export function translateCourse(course: Course): string {
+  switch (course) {
+    case "Art_Appreciation":
+      return "艺术欣赏";
+    case "Creative_Writing":
+      return "创意写作";
+    case "Intercultural_Communication":
+      return "跨文化交流";
+    case "Social_Psychology":
+      return "社会心理学";
+    case "Entrepreneurship_and_Innovation":
+      return "创业与创新";
+    case "Global_Issues_Studies":
+      return "全球问题研究";
+    case "Science_and_Ethics":
+      return "科学与伦理";
+    case "Public_Speaking":
+      return "公共演讲";
+    case "Cultural_Anthropology":
+      return "文化人类学";
+    case "Interpersonal_Communication":
+      return "人际沟通";
+    case "Introduction_to_Sociology":
+      return "社会学导论";
+    case "Media_and_Society":
+      return "媒体与社会";
+    case "Logic_and_Critical_Thinking":
+      return "逻辑与批判性思维";
+    case "Political_Science":
+      return "政治科学";
+    case "Introduction_to_Public_Health":
+      return "公共卫生导论";
+    case "Environmental_Science":
+      return "环境科学";
+    case "Human_Rights_and_Social_Justice":
+      return "人权与社会正义";
+    case "Cultural_Diversity":
+      return "文化多样性";
+    case "Health_and_Fitness":
+      return "健康与健身";
+    case "Fundamentals_of_Finance":
+      return "金融基础";
+    case "World_History":
+      return "世界历史";
+    case "Digital_Media_and_Design":
+      return "数字媒体与设计";
+    case "Urban_Planning_and_Development":
+      return "城市规划与发展";
+    case "International_Relations":
+      return "国际关系";
+    case "Art_History":
+      return "艺术史";
+    case "Data_Analysis_and_Statistics":
+      return "数据分析与统计";
+    case "Music_Appreciation":
+      return "音乐欣赏";
+    case "Tourism_Management":
+      return "旅游管理";
+    case "Criminal_Law_and_Social_Justice":
+      return "刑事法与社会正义";
+    case "Health_Psychology":
+      return "健康心理学";
+    case "Media_and_Social_Change":
+      return "传媒与社交变革";
+    case "Principles_of_Marketing":
+      return "营销原理";
+    case "Creative_Thinking":
+      return "创意思维";
+    case "Earth_Science":
+      return "地球科学";
+    case "Family_and_Marriage_Relationships":
+      return "家庭与婚姻关系";
+    case "Social_Media_and_Internet_Culture":
+      return "社会媒体与网络文化";
+    case "International_Business":
+      return "国际商务";
+    case "Social_and_Cultural_Psychology":
+      return "社会与文化心理学";
+    case "Science_Technology_and_Society":
+      return "科技与社会";
+    case "Principles_of_Economics":
+      return "基础经济学";
+    case "Human_Resource_Management":
+      return "人力资源管理";
+    case "Music_Production":
+      return "音乐制作";
+    case "Government_and_Public_Policy":
+      return "政府与公共政策";
+    case "Network_Security":
+      return "网络安全";
+    case "Film_and_Television_Studies":
+      return "电影与电视研究";
+    case "International_Development":
+      return "国际发展";
+    case "Sports_Management":
+      return "体育管理";
+    case "Introduction_to_Linguistics":
+      return "语言学导论";
+    case "Data_Structure":
+      return "数据结构";
+    case "Database_Principles":
+      return "数据库原理";
+    default:
+      return "NULL";
+  }
+}
+
+export function translateField(field: string) {
+  switch (field) {
+    case "学号":
+      return "sno";
+    case "姓名":
+      return "sname";
+    case "年龄":
+      return "age";
+    case "性别":
+      return "sex";
+    case "修读专业":
+      return "dept";
+    case "电子邮件":
+      return "email";
+    case "电话号码":
+      return "phone_num";
+    case "家庭地址":
+      return "address";
+    case "课程号":
+      return "sno";
+    case "课程名":
+      return "sno";
+    case "学分":
+      return "sno";
+    case "创建时间":
+      return "createdAt";
+    case "更新时间":
+      return "updatedAt";
+  }
+}
+
+export function translateOperator(field: string) {
+  switch (field) {
+    case "=":
+      return "equals";
+    case "<":
+      return "lt";
+    case "<=":
+      return "lte";
+    case ">":
+      return "gt";
+    case ">=":
+      return "gte";
+    case "!=":
+      return "not";
+    case "IN":
+      return "in";
+    case "NOT IN":
+      return "notIn";
+    case "CONTAINS":
+      return "contains";
+    case "STARTS WITH":
+      return "startsWith";
+    case "ENDS WITH":
+      return "endsWith";
+    default:
+      return "equals";
+  }
+}
+
+// 计算机科学
+// 工程学
+// 工商管理
+// 心理学
+// 生物学
+// 化学
+// 物理学
+// 数学
+// 英语
+// 历史学
+// 政治学
+// 经济学
+// 社会学
+// 人类学
+// 艺术与艺术史学
+// 音乐学
+// 电影研究学
+// 传播学
+// 教育学
+// 护理学
+// 临床医学
+// 环境科学
+// 哲学
+// 国际关系学
+// 语言学
+// 平面设计学
+// 建筑学
+// 戏剧与表演学
+// 新闻学
+// 公共卫生学
+// 社会工作学
+// 刑事司法学
+// 市场营销学
+// 金融学
+// 人力资源学
+// 环境研究学
+// 公共关系学
+// 媒体研究学
+// 文化研究学
+// 宗教研究学
+// 信息技术学
+// 城市规划学
+// 公共政策学
+// 考古学
+// 地质学
+// 天文学
+// 健康科学
+
+// 艺术欣赏
+// 创意写作
+// 跨文化交流
+// 社会心理学
+// 创业与创新
+// 全球问题研究
+// 科学与伦理
+// 公共演讲
+// 文化人类学
+// 人际沟通
+// 社会学导论
+// 媒体与社会
+// 逻辑与批判性思维
+// 政治科学
+// 公共卫生导论
+// 环境科学
+// 人权与社会正义
+// 文化多样性
+// 健康与健身
+// 金融基础
+// 世界历史
+// 数字媒体与设计
+// 城市规划与发展
+// 国际关系
+// 艺术史
+// 数据分析与统计
+// 音乐欣赏
+// 旅游管理
+// 刑事法与社会正义
+// 健康心理学
+// 传媒与社交变革
+// 营销原理
+// 创意思维
+// 地球科学
+// 家庭与婚姻关系
+// 社会媒体与网络文化
+// 国际商务
+// 社会与文化心理学
+// 科技与社会
+// 基础经济学
+// 人力资源管理
+// 音乐制作
+// 政府与公共政策
+// 网络安全
+// 电影与电视研究
+// 国际发展
+// 体育管理
+// 语言学导论
+// 数据结构
+// 数据库原理
